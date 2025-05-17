@@ -1,3 +1,49 @@
-node_modules
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment variables
 .env
-dist
+.env.local
+.env.*.local
+
+# TypeScript cache
+*.tsbuildinfo
+
+# VSCode settings
+.vscode/
+
+# OS/Editor-specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Database backups & session files
+*.sql
+*.dump
+sql/
+docker/
+db/backup/
+mythyverse-db.session.sql
+
+# Runtime
+*.pid
+*.seed
+
+# Docker
+Dockerfile
+docker-compose.*
