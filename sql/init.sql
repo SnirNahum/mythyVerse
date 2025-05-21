@@ -6,7 +6,10 @@ CREATE TABLE IF NOT EXISTS universes (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name VARCHAR(255) UNIQUE NOT NULL,
   description TEXT,
-  cover_image_url TEXT
+  cover_image_url TEXT,
+  status INT DEFAULT 0,
+  created_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT,
+  updated_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT
 );
 
 -- 2. Families
@@ -14,7 +17,10 @@ CREATE TABLE IF NOT EXISTS families (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   universe_id UUID REFERENCES universes(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
-  description TEXT
+  description TEXT,
+  status INT DEFAULT 0,
+  created_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT,
+  updated_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT
 );
 
 -- 3. Characters
@@ -27,8 +33,9 @@ CREATE TABLE IF NOT EXISTS characters (
   dob VARCHAR(100),
   dod VARCHAR(100),
   image_url TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  status INT DEFAULT 0,
+  created_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT,
+  updated_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT
 );
 
 -- 4. Relationship Type Enum
@@ -53,5 +60,7 @@ CREATE TABLE IF NOT EXISTS relationships (
   target_id UUID REFERENCES characters(id) ON DELETE CASCADE,
   relationship_type relationship_type NOT NULL,
   description TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  status INT DEFAULT 0,
+  created_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT,
+  updated_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT
 );

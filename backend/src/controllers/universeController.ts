@@ -6,7 +6,9 @@ import {
   delete_universe_by_id,
   get_all_universes,
   get_universe_by_id,
+  update_universe_by_id,
 } from "../services/universeService";
+import { error } from "console";
 
 export async function get_all_universes_handler(req: Request, res: Response) {
   try {
@@ -54,9 +56,7 @@ export async function create_new_universe_handler(
   } catch (err: any) {
     logger.error({ err, body }, "Failed to create universe");
     return res.status(500).json({
-      error: "Could not create universe",
-      message: err.message,
-      code: err.code || undefined,
+      error: `Could not create universe: ${err.message}`,
     });
   }
 }
@@ -79,6 +79,33 @@ export async function delete_universe_by_id_handler(
 
     return res.status(status).json({
       error: message,
+    });
+  }
+}
+
+interface UniverseBody {
+  name: string;
+  description: string;
+  cover_image_url: string;
+  status: string;
+  created_at: number;
+  updated_at: number;
+}
+
+export async function update_universe_by_id_handler(
+  req: Request,
+  res: Response
+) {
+  const universe_id: string = req.params.id;
+  const universe_body: UniverseBody = req.body;
+  try {
+    await update_universe_by_id(universe_id, universe_body);
+    logger.info("Universe updated successfully");
+    res.status(200).json({ message: "Universe updated successfully" });
+  } catch (err) {
+    logger.error({ err, universe_body }, "Failed to update universe");
+    return res.status(500).json({
+      error: `Could not update universe: ${universe_body}`,
     });
   }
 }
