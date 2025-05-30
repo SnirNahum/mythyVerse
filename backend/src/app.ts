@@ -16,7 +16,7 @@ app.use(logErrors);
 
 app.use(express.json());
 app.use("/health", healthRouter);
-app.use("/api/universe", universeRouter);
+app.use("/api/universes", universeRouter);
 app.use("/api/families", familiesRouter);
 app.use("/api/characters", characterRouter);
 

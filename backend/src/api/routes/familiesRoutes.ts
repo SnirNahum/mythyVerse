@@ -1,11 +1,17 @@
 import { Router } from "express";
-import { create_family_by_id, delete_family_by_id, get_all_families, get_family_by_id, update_family_by_id } from "../../controllers/familiesController";
+import {
+  create_entity_handler,
+  delete_entity_by_id_handler,
+  get_all_entities_handler,
+  get_entity_by_id_handler,
+  update_entity_by_id_handler,
+} from "../../db/dbController";
 
 const familiesRouter: Router = Router();
-familiesRouter.get("/", get_all_families);
-familiesRouter.get("/:id", get_family_by_id);
-familiesRouter.post("/", create_family_by_id);
-familiesRouter.delete("/:id", delete_family_by_id);
-familiesRouter.put("/:id", update_family_by_id);
+familiesRouter.get("/", get_all_entities_handler);
+familiesRouter.get("/:id", get_entity_by_id_handler);
+familiesRouter.post("/", create_entity_handler);
+familiesRouter.delete("/:id", delete_entity_by_id_handler);
+familiesRouter.put("/:id", update_entity_by_id_handler);
 
 export default familiesRouter;
