@@ -1,3 +1,4 @@
+import { QueryResult } from "pg";
 import pool from "../db";
 import { create_entity_query } from "../db/queries/crudQueries";
 import {
@@ -18,7 +19,7 @@ export async function getAllEntities<T>(query: string): Promise<T[]> {
 
 export async function getEntityById<T>(query: string): Promise<T | null> {
   try {
-    const result = await pool.query(query);
+    const result: Record<string, any> = await pool.query(query);
     return result.rows[0] || null;
   } catch (err: any) {
     logger.error("Error in getEntityById:", err);
@@ -29,7 +30,7 @@ export async function getEntityById<T>(query: string): Promise<T | null> {
 export async function createEntity<T>(
   tableName: string,
   values: Record<string, any>
-) {
+): Promise<T | null> {
   const fields: { keys: string[]; placeholders: string[] } =
     prepare_placeholders_and_keys(values);
   const query = create_entity_query(
@@ -41,7 +42,6 @@ export async function createEntity<T>(
 
   try {
     const result = await pool.query(query, orderedValues);
-    debugger;
     return result.rows[0];
   } catch (err: any) {
     logger.error("Error in createEntity:", err);

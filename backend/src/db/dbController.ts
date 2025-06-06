@@ -15,7 +15,10 @@ import {
 import logger from "../logger/logger";
 import handleServerError from "../errorHandler/statusCode";
 
-export async function get_all_entities_handler(req: Request, res: Response) {
+export async function get_all_entities_handler(
+  req: Request,
+  res: Response
+): Promise<void> {
   const table_name: string = get_table_name_by_url(req.baseUrl);
   try {
     const query: string = get_all_entitites_query(table_name);
@@ -31,12 +34,12 @@ export async function get_entity_by_id_handler(
   req: Request,
   res: Response
 ): Promise<void> {
-  const entity_id = req.params.id;
-  const table_name = get_table_name_by_url(req.baseUrl);
+  const entity_id: string = req.params.id;
+  const table_name: string = get_table_name_by_url(req.baseUrl);
 
   try {
-    const entity_query = get_entity_by_id_query(table_name, entity_id);
-    const entity = await getEntityById(entity_query);
+    const entity_query: string = get_entity_by_id_query(table_name, entity_id);
+    const entity: object | null = await getEntityById(entity_query);
     if (!entity) {
       res
         .status(404)
@@ -53,14 +56,17 @@ export async function get_entity_by_id_handler(
   }
 }
 
-export async function delete_entity_by_id_handler(req: Request, res: Response) {
-  const entity_id = req.params.id;
-  const table_name = get_table_name_by_url(req.baseUrl);
+export async function delete_entity_by_id_handler(
+  req: Request,
+  res: Response
+): Promise<void> {
+  const entity_id: string = req.params.id;
+  const table_name: string = get_table_name_by_url(req.baseUrl);
   try {
     const query: string = delete_entitites_by_id_query(table_name, entity_id);
     await deleteEntityById(query);
 
-    return res.status(200).json({
+    res.status(200).json({
       message: "Universe deleted successfully",
     });
   } catch (err: any) {
@@ -68,13 +74,16 @@ export async function delete_entity_by_id_handler(req: Request, res: Response) {
   }
 }
 
-export async function create_entity_handler(req: Request, res: Response) {
-  const table_name = get_table_name_by_url(req.baseUrl);
-  const { body } = req;
+export async function create_entity_handler(
+  req: Request,
+  res: Response
+): Promise<void> {
+  const table_name: string = get_table_name_by_url(req.baseUrl);
+  const body: Record<string, any> = req.body;
   try {
-    const new_entity = await createEntity(table_name, body);
+    const new_entity: Record<string, any> | null = await createEntity(table_name, body);
 
-    return res.status(201).json({
+    res.status(201).json({
       message: `${table_name} entity created successfully`,
       new_entity,
     });
@@ -83,10 +92,10 @@ export async function create_entity_handler(req: Request, res: Response) {
   }
 }
 
-export async function update_entity_by_id_handler(req: Request, res: Response) {
+export async function update_entity_by_id_handler(req: Request, res: Response): Promise<void> {
   const entity_id: string = req.params.id;
-  const table_name = get_table_name_by_url(req.baseUrl);
-  const body = req.body;
+  const table_name: string = get_table_name_by_url(req.baseUrl);
+  const body: Record<string, any> = req.body;
   try {
     await updateEntityById(entity_id, table_name, body);
     logger.info("Universe updated successfully");

@@ -64,3 +64,16 @@ CREATE TABLE IF NOT EXISTS relationships (
   created_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT,
   updated_at BIGINT DEFAULT (EXTRACT(EPOCH FROM NOW()) * 1000)::BIGINT
 );
+
+-- 6. Users
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    nickname TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    type INTEGER NOT NULL,
+    hashed_password TEXT NOT NULL,
+    email_verified INTEGER NOT NULL DEFAULT 0,
+    created_at BIGINT NOT NULL,
+    updated_at BIGINT NOT NULL,
+    status INTEGER NOT NULL
+);
