@@ -67,7 +67,7 @@ export async function delete_entity_by_id_handler(
     await deleteEntityById(query);
 
     res.status(200).json({
-      message: "Universe deleted successfully",
+      message: "Entity deleted successfully",
     });
   } catch (err: any) {
     handleServerError(res, `fetching ${table_name}`, err);

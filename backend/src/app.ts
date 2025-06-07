@@ -8,6 +8,7 @@ import { logErrors } from "./middleware/logger/errorLogger";
 import familiesRouter from "./api/routes/familiesRoutes";
 import characterRouter from "./api/routes/characterRoutes";
 import { usersRouter } from "./api/routes/usersRoutes";
+import relationshipsRouter from "./api/routes/relationshipsRoutes";
 
 const app: Application = express();
 
@@ -20,6 +21,7 @@ app.use("/health", healthRouter);
 app.use("/api/universes", universeRouter);
 app.use("/api/families", familiesRouter);
 app.use("/api/characters", characterRouter);
+app.use("/api/relationships", relationshipsRouter);
 app.use("/api/users", usersRouter);
 
 export default app;
