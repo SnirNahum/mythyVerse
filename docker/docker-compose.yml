@@ -3,12 +3,12 @@ version: '3.9'
 services:
   db:
     image: postgres:15
-    container_name: mythyverse_db
+    container_name: mythyroots_db
     restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: mythyverse
+      POSTGRES_DB: mythyroots
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:

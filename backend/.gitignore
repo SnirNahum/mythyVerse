@@ -38,7 +38,7 @@ Desktop.ini
 sql/
 docker/
 db/backup/
-mythyverse-db.session.sql
+mythyroots-db.session.sql
 
 # Runtime
 *.pid

@@ -1,0 +1,11 @@
+.modalBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fff; // Equivalent to 'background.paper'
+  border: 2px solid #000;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.24);
+  padding: 32px; // equivalent to `p: 4` (theme spacing * 4 = 8px * 4)
+}

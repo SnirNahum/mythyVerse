@@ -1,4 +1,6 @@
 import express, { Application } from "express";
+import cors from "cors";
+
 import healthRouter from "./api/routes/healthRoutes";
 import universeRouter from "./api/routes/universeRoutes";
 import pinoHttp from "pino-http";
@@ -11,6 +13,13 @@ import { usersRouter } from "./api/routes/usersRoutes";
 import relationshipsRouter from "./api/routes/relationshipsRoutes";
 
 const app: Application = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+app.use(express.json());
 
 app.use(pinoHttp({ logger }));
 app.use(logRequestDetails);
