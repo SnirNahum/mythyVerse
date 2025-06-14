@@ -12,11 +12,13 @@ const UniverseFilter = ({ universeFilter }) => {
 
         <div className="border"></div>
 
-        <div id="main">
+        <div id="button-container">
           <input
             onChange={(e) => universeFilter(e.target.value)}
             placeholder="Search for universe..."
             type="text"
+            autoComplete="off"
+            spellCheck="false"
             name="text"
             className="input"
           />

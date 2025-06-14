@@ -1,21 +1,23 @@
+@use "./variables";
+@use "./functions";
 * {
   font-family: roboto;
   font-size: 16px;
-  scrollbar-color: $clr1 $clr2;
-  color: $clr11;
+  scrollbar-color: variables.$clr1 variables.$clr2;
+  color: variables.$clr11;
 }
 
 *::-webkit-scrollbar {
-  width: rem(8);
-  height: rem(8);
+  width: functions.rem(8);
+  height: functions.rem(8);
 }
 
 *::-webkit-scrollbar-track {
-  background: $clr1;
+  background: variables.$clr1;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $clr2;
-  border-radius: rem(4);
-  border: rem(2) solid $clr1;
+  background-color: variables.$clr2;
+  border-radius: functions.rem(4);
+  border: functions.rem(2) solid variables.$clr1;
 }

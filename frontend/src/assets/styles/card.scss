@@ -1,20 +1,22 @@
+@use "./basic/variables";
+@use "./basic/functions";
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: rem(20);
+  gap: functions.rem(20);
   width: 100%;
-  margin-top: rem(20);
+  margin-top: functions.rem(20);
 
   .universe-card {
     width: 100%;
-    height: rem(300);
-    background-color: $clr1;
-    border-radius: rem(12);
+    height: functions.rem(300);
+    background-color: variables.$clr1;
+    border-radius: functions.rem(12);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 rem(2) rem(8) rgba(0, 0, 0, 0.6);
+    box-shadow: 0 functions.rem(2) functions.rem(8) rgba(0, 0, 0, 0.6);
     font-family: "Inter", sans-serif;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -22,97 +24,97 @@
       transform: scale(1.05);
     }
     .card-header {
-      height: rem(80);
+      height: functions.rem(80);
       background: linear-gradient(180deg, #8a4d1e 0%, #4c2e13 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: rem(12) rem(16);
+      padding: functions.rem(12) functions.rem(16);
 
       h3 {
         font-size: 1.2em;
         font-weight: 600;
-        color: $clr11;
+        color: variables.$clr11;
         margin: 0;
       }
 
       .crown-icon {
-        width: rem(24);
-        height: rem(24);
+        width: functions.rem(24);
+        height: functions.rem(24);
         filter: invert(1);
       }
     }
 
     .card-body {
-      padding: rem(20);
+      padding: functions.rem(20);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
 
       .card-title {
-        font-size: rem(20);
+        font-size: functions.rem(20);
         font-weight: 600;
-        color: $clr7;
+        color: variables.$clr7;
         margin-bottom: 12px;
       }
 
       .card-description {
-        font-size: rem(14);
-        color: $clr7;
+        font-size: functions.rem(14);
+        color: variables.$clr7;
         line-height: 1.6;
         flex-grow: 1;
       }
 
       .card-button {
         align-self: flex-start;
-        margin-top: rem(20);
-        padding: rem(6) rem(14);
+        margin-top: functions.rem(20);
+        padding: functions.rem(6) functions.rem(14);
         background-color: transparent;
-        border: rem(1) solid $clr6;
-        border-radius: rem(999);
-        color: $clr7;
-        font-size: rem(12);
+        border: functions.rem(1) solid variables.$clr6;
+        border-radius: functions.rem(999);
+        color: variables.$clr7;
+        font-size: functions.rem(12);
         cursor: pointer;
         transition: all 0.2s ease;
 
         &:hover {
-          background-color: $clr2;
-          border-color: $clr6;
+          background-color: variables.$clr2;
+          border-color: variables.$clr6;
         }
       }
     }
   }
 
-  @media (max-width: rem(480)) {
+  @media (max-width: functions.rem(480)) {
     height: auto;
     .card-body {
-      padding: rem(16);
+      padding: functions.rem(16);
 
       .card-title {
-        font-size: rem(18);
+        font-size: functions.rem(18);
       }
 
       .card-description {
-        font-size: rem(13);
+        font-size: functions.rem(13);
       }
 
       .card-button {
-        font-size: rem(11);
-        padding: rem(5) rem(12);
+        font-size: functions.rem(11);
+        padding: functions.rem(5) functions.rem(12);
       }
     }
 
     .card-header {
-      padding: rem(10) rem(14);
+      padding: functions.rem(10) functions.rem(14);
 
       h3 {
         font-size: 1em;
       }
 
       .crown-icon {
-        width: rem(20);
-        height: rem(20);
+        width: functions.rem(20);
+        height: functions.rem(20);
       }
     }
   }

@@ -1,11 +1,14 @@
 /* From Uiverse.io by gharsh11032000 */
+@use "../basic/variables";
+@use "../basic/functions";
+
 .universe-button {
   cursor: pointer;
   position: relative;
   padding: 10px 24px;
   font-size: 18px;
-  color: $clr2;
-  border: 2px solid $clr3;
+  color: variables.$clr2;
+  border: 2px solid variables.$clr3;
   border-radius: 34px;
   background-color: transparent;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
@@ -22,7 +25,7 @@
   border-radius: inherit;
   scale: 0;
   z-index: -1;
-  background-color: $clr4;
+  background-color: variables.$clr4;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -31,9 +34,9 @@
 }
 
 .universe-button:hover {
-  color: $clr6;
+  color: variables.$clr6;
   scale: 1.1;
-  box-shadow: 0 0px 20px $clr6;
+  box-shadow: 0 0px 20px variables.$clr6;
 }
 
 .universe-button:active {
@@ -59,8 +62,8 @@
   background-image: linear-gradient(#212121, #212121),
     linear-gradient(
       137.48deg,
-      #ffdb3b 10%,
-      #fe53bb 45%,
+      #3b0075 10%,
+      #4b0082 35%,
       #8f51ea 67%,
       #0044ff 87%
     );
@@ -113,7 +116,7 @@
 
 .btn:hover .container-stars {
   z-index: 1;
-  background-color: $clr9;
+  background-color: variables.$clr9;
 }
 
 .btn:hover {

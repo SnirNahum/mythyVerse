@@ -17,7 +17,6 @@ const Card = ({ filteredUniverses }) => {
           </div>
           <div className="card-body">
             <p className="card-description">{filteredUniverse.description}</p>
-            {/* <button className="card-button"> asdasdasd</button> */}
           </div>
         </div>
       ))}
