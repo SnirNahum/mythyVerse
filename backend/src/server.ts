@@ -1,9 +1,10 @@
 import app from "./app";
-import pool from "./db"; // ✅ Reuse shared pool
+import pool from "./db";
 
 const port = 5000;
 
-pool.connect()
+pool
+  .connect()
   .then(() => {
     console.log("Connected to PostgreSQL DB");
     app.listen(port, () => {

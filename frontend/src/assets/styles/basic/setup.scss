@@ -1,0 +1,21 @@
+* {
+  font-family: roboto;
+  font-size: 16px;
+  scrollbar-color: $clr1 $clr2;
+  color: $clr11;
+}
+
+*::-webkit-scrollbar {
+  width: rem(8);
+  height: rem(8);
+}
+
+*::-webkit-scrollbar-track {
+  background: $clr1;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $clr2;
+  border-radius: rem(4);
+  border: rem(2) solid $clr1;
+}

@@ -1,0 +1,17 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-logo {
+  width: 7em;
+  border-radius: 30%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}

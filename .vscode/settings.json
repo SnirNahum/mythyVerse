@@ -6,9 +6,29 @@
             "port": 5432,
             "askForPassword": true,
             "driver": "PostgreSQL",
-            "name": "mythyverse-db",
-            "database": "mythyverse",
+            "name": "mythyroots-db",
+            "database": "mythyroots",
             "username": "postgres"
         }
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#76367f",
+        "activityBar.background": "#76367f",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#16150a",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#76367f",
+        "statusBar.background": "#55275b",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#76367f",
+        "statusBarItem.remoteBackground": "#55275b",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#55275b",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#55275b99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#55275b"
 }

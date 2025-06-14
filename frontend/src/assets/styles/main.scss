@@ -1,0 +1,18 @@
+//basics
+@import "./basic/functions.scss";
+@import "./basic/variables.scss";
+@import "./basic/setup.scss";
+
+// layout
+@import "./basic/layout.scss";
+
+// cmps
+@import "cmps/navBar/navbar.scss";
+@import "cmps/navBar/navbar-modal.scss";
+@import "cmps/buttons.scss";
+@import "./card.scss";
+@import "./modal.scss";
+
+//Utils
+@import "./cmps/Input.scss";
+@import "./cmps/universe-not-found.scss";

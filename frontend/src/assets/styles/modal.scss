@@ -1,0 +1,15 @@
+@import url('./basic/variables.scss');
+.modal-conatiner {
+  width: 80%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $clr2;
+  border: rem(2) solid $clr1;
+  box-shadow: 0 rem(4) rem(24) rgba(0, 0, 0, 0.1);
+  padding: rem(16);
+  overflow: auto;
+
+}

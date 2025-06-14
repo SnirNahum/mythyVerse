@@ -1,8 +1,4 @@
 import { Router } from "express";
-// import {
-//   create_new_universe_handler,
-//   update_universe_by_id_handler,
-// } from "../../controllers/universeController";
 import {
   create_entity_handler,
   delete_entity_by_id_handler,

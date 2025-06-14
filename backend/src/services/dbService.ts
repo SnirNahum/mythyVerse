@@ -1,4 +1,3 @@
-import { QueryResult } from "pg";
 import pool from "../db";
 import { create_entity_query } from "../db/queries/crudQueries";
 import {
@@ -17,9 +16,15 @@ export async function getAllEntities<T>(query: string): Promise<T[]> {
   }
 }
 
-export async function getEntityById<T>(query: string): Promise<T | null> {
+export async function getEntityById<T>(
+  query: string,
+  isAllCharacters = false
+): Promise<T | null> {
   try {
     const result: Record<string, any> = await pool.query(query);
+    if (isAllCharacters) {
+      return result.rows|| null;
+    }
     return result.rows[0] || null;
   } catch (err: any) {
     logger.error("Error in getEntityById:", err);
