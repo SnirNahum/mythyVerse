@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+=======
+* {
+  font-family: roboto;
+  font-size: 16px;
+}
+
+>>>>>>> d9bd0bdc9edb474f247c8126948e091cad0a7028
 .main-layout {
   display: grid;
   grid-template-rows: 0.2fr 1fr 0.2fr;
   justify-items: center;
   height: 100vh;
+<<<<<<< HEAD
   background-color: $clr2;
   color: $clr11;
 }
@@ -11,5 +20,23 @@
   cursor: pointer;
   &:hover {
     background-color: $clr7;
+=======
+
+  // & > :first-child {
+  //   justify-self: start;
+  // }
+}
+
+// .card-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//   grid-gap: 20px;
+// }
+
+.dropdown-entities {
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(228, 228, 228);
+>>>>>>> d9bd0bdc9edb474f247c8126948e091cad0a7028
   }
 }

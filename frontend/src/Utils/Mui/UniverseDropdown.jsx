@@ -1,6 +1,7 @@
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+<<<<<<< HEAD
 import { useState } from "react";
 
 export default function UniverseDropdown({ entities, entityName }) {
@@ -37,4 +38,9 @@ export default function UniverseDropdown({ entities, entityName }) {
       </Popover>
     </div>
   );
+=======
+
+export default function UniverseDropdown({ entities }) {
+  return <div>{entities.map((item, idx)=>{})}</div>;
+>>>>>>> d9bd0bdc9edb474f247c8126948e091cad0a7028
 }
