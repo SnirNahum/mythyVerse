@@ -1,3 +1,4 @@
+import { BrowserRouter, Router } from "react-router-dom";
 import "./App.css";
 import "./assets/styles/main.scss";
 import AppFooter from "./components/AppFooter.jsx";

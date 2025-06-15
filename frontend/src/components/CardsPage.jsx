@@ -7,8 +7,10 @@ const CardsPage = ({ universes }) => {
   const [filteredUniverses, setFilteredUniverses] = useState(universes);
 
   const onChangeHandler = (filteredUniverse) => {
-    const filter = universes.filter((universe)=> universe[NAME].toLowerCase().startsWith(filteredUniverse.toLowerCase()))
-    setFilteredUniverses(filter)
+    const filter = universes.filter((universe) =>
+      universe[NAME].toLowerCase().startsWith(filteredUniverse.toLowerCase())
+    );
+    setFilteredUniverses(filter);
   };
 
   return (
@@ -16,7 +18,7 @@ const CardsPage = ({ universes }) => {
       <UniverseFilter universes={universes} universeFilter={onChangeHandler} />
 
       <div className="universe-card">
-        <Card filteredUniverses={filteredUniverses}/>
+        <Card filteredUniverses={filteredUniverses} />
       </div>
     </>
   );

@@ -6,6 +6,7 @@ import UniverseButton from "./Utils.jsx/UniverseButton";
 
 export default function UniverseModal({ universes }) {
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -13,7 +14,7 @@ export default function UniverseModal({ universes }) {
     <div>
       <UniverseButton handleOpen={handleOpen} />
       <Modal open={open} onClose={handleClose}>
-        <Box className="modal-conatiner">
+        <Box className="modal-container">
           <div className="scroller">
             <CardsPage universes={universes} />
           </div>

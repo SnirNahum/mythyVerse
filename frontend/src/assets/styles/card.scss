@@ -1,5 +1,6 @@
 @use "./basic/variables";
 @use "./basic/functions";
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,7 +26,6 @@
     }
     .card-header {
       height: functions.rem(80);
-      background: linear-gradient(180deg, #8a4d1e 0%, #4c2e13 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -102,19 +102,6 @@
       .card-button {
         font-size: functions.rem(11);
         padding: functions.rem(5) functions.rem(12);
-      }
-    }
-
-    .card-header {
-      padding: functions.rem(10) functions.rem(14);
-
-      h3 {
-        font-size: 1em;
-      }
-
-      .crown-icon {
-        width: functions.rem(20);
-        height: functions.rem(20);
       }
     }
   }

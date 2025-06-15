@@ -14,7 +14,7 @@ const UniverseFilter = ({ universeFilter }) => {
 
         <div id="button-container">
           <input
-            onChange={(e) => universeFilter(e.target.value)}
+            onChange={(e) => universeFilter(e.target.value.trim())}
             placeholder="Search for universe..."
             type="text"
             autoComplete="off"
