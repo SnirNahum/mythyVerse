@@ -1,3 +1,7 @@
+import {
+  get_incoming_relationships,
+  get_outgoing_relationships,
+} from "../controllers/relationshipsCotroller";
 import pool from "../db";
 import { create_entity_query } from "../db/queries/crudQueries";
 import {
@@ -16,14 +20,13 @@ export async function getAllEntities<T>(query: string): Promise<T[]> {
   }
 }
 
-export async function getEntityById<T>(
-  query: string,
-  isAllCharacters = false
-): Promise<T | null> {
+export async function getEntityById<T>(query: string, isAllCharacters = false) {
   try {
-    const result: Record<string, any> = await pool.query(query);
+    let result: any = await pool.query(query);
     if (isAllCharacters) {
-      return result.rows|| null;
+      result = await get_incoming_relationships(result.rows);
+      const data = await get_outgoing_relationships(result);
+      return result;
     }
     return result.rows[0] || null;
   } catch (err: any) {

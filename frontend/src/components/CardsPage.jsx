@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Card from "./Card";
 import UniverseFilter from "./UniverseFilter";
-import { NAME } from "../Utils/SavedWords";
+import { NAME } from "../utils/SavedWords";
+import { useMythyRootsStore } from "../store/store";
 
-const CardsPage = ({ universes }) => {
+const CardsPage = ({ onClose }) => {
+  const universes = useMythyRootsStore((state) => state.universes);
   const [filteredUniverses, setFilteredUniverses] = useState(universes);
 
   const onChangeHandler = (filteredUniverse) => {
@@ -18,7 +20,7 @@ const CardsPage = ({ universes }) => {
       <UniverseFilter universes={universes} universeFilter={onChangeHandler} />
 
       <div className="universe-card">
-        <Card filteredUniverses={filteredUniverses} />
+        <Card filteredUniverses={filteredUniverses} onClose={onClose} />
       </div>
     </>
   );
