@@ -1,4 +1,4 @@
-import { UNIVERSES_CAMEL } from "../../Utils/SavedWords";
+import { UNIVERSES_CAMEL } from "../../utils/SavedWords";
 
 const UniverseButton = ({ handleOpen }) => {
   return (

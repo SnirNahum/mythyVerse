@@ -82,7 +82,10 @@ export async function create_entity_handler(
   const table_name: string = get_table_name_by_url(req.baseUrl);
   const body: Record<string, any> = req.body;
   try {
-    const new_entity: Record<string, any> | null = await createEntity(table_name, body);
+    const new_entity: Record<string, any> | null = await createEntity(
+      table_name,
+      body
+    );
 
     res.status(201).json({
       message: `${table_name} entity created successfully`,
@@ -93,7 +96,10 @@ export async function create_entity_handler(
   }
 }
 
-export async function update_entity_by_id_handler(req: Request, res: Response): Promise<void> {
+export async function update_entity_by_id_handler(
+  req: Request,
+  res: Response
+): Promise<void> {
   const entity_id: string = req.params.id;
   const table_name: string = get_table_name_by_url(req.baseUrl);
   const body: Record<string, any> = req.body;
@@ -106,17 +112,20 @@ export async function update_entity_by_id_handler(req: Request, res: Response): 
   }
 }
 
-
-export async function get_all_characters_by_universe_id(req: Request,
+export async function get_all_characters_by_universe_id(
+  req: Request,
   res: Response
 ): Promise<void> {
   const entity_id: string = req.params.id;
-  const universe_id: string = req.body.universeId;
   const table_name: string = get_table_name_by_url(req.baseUrl);
 
   try {
-    const entity_query: string = get_all_chracters_by_universe_query(table_name, universe_id);
+    const entity_query: string = get_all_chracters_by_universe_query(
+      table_name,
+      entity_id
+    );
     const entity: object | null = await getEntityById(entity_query, true);
+
     if (!entity) {
       res
         .status(404)

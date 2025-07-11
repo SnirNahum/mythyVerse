@@ -4,7 +4,7 @@ import { useState } from "react";
 import CardsPage from "./CardsPage";
 import UniverseButton from "./Utils.jsx/UniverseButton";
 
-export default function UniverseModal({ universes }) {
+export default function UniverseModal() {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -16,7 +16,7 @@ export default function UniverseModal({ universes }) {
       <Modal open={open} onClose={handleClose}>
         <Box className="modal-container">
           <div className="scroller">
-            <CardsPage universes={universes} />
+            <CardsPage onClose={handleClose}/>
           </div>
         </Box>
       </Modal>
