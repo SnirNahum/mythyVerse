@@ -31,7 +31,6 @@ export async function get_incoming_relationships(characters: Character[]) {
     );
     characters[i].incomingRelations = incoming_res.rows;
   }
-  console.log(characters);
   
   return characters;
 }

@@ -1,9 +1,9 @@
-import { UNIVERSES_CAMEL } from "../../utils/SavedWords";
+import { UNIVERSES } from "../../utils/SavedWords";
 
 const UniverseButton = ({ handleOpen }) => {
   return (
     <button onClick={handleOpen} type="universe-button" className="btn">
-      <p>{UNIVERSES_CAMEL}</p>
+      <p>{UNIVERSES?.toUpperCase()}</p>
       <div className="container-stars">
         <div className="stars"></div>
       </div>

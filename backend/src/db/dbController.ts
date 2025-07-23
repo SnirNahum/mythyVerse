@@ -3,6 +3,7 @@ import {
   delete_entitites_by_id_query,
   get_all_chracters_by_universe_query,
   get_all_entitites_query,
+  get_all_relationships_by_universe_query,
   get_entity_by_id_query,
 } from "./queries/crudQueries";
 import { get_table_name_by_url } from "./utils";
@@ -121,6 +122,36 @@ export async function get_all_characters_by_universe_id(
 
   try {
     const entity_query: string = get_all_chracters_by_universe_query(
+      table_name,
+      entity_id
+    );
+    const entity: object | null = await getEntityById(entity_query, true);
+
+    if (!entity) {
+      res
+        .status(404)
+        .json({ error: `Enitity with ID: ${entity_id} not found` });
+      return;
+    }
+
+    res.json({
+      messsage: `Enitity with ID: ${entity_id} fetched successfully`,
+      body: entity,
+    });
+  } catch (err) {
+    handleServerError(res, `fetching ${table_name}`, err);
+  }
+}
+
+export async function get_relationships_by_universeId_handler(
+  req: Request,
+  res: Response
+): Promise<void> {
+  const entity_id: string = req.params.id;
+  const table_name: string = get_table_name_by_url(req.baseUrl);
+
+  try {
+    const entity_query: string = get_all_relationships_by_universe_query(
       table_name,
       entity_id
     );

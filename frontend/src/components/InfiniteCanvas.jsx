@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback } from "react";
 import {
   Background,
   ReactFlow,
@@ -6,6 +6,7 @@ import {
   ConnectionLineType,
   useNodesState,
   useEdgesState,
+  useReactFlow,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {
@@ -16,31 +17,23 @@ import Loader from "./Loader";
 import { useMythyRootsStore } from "../store/store";
 import { getLayoutedElements } from "./canvas/layoutElements";
 
-const relationships = [
-  { id: "rel1", source_id: "cronus", target_id: "zeus", type: "parent" },
-  { id: "rel2", source_id: "rhea", target_id: "zeus", type: "parent" },
-  { id: "rel3", source_id: "zeus", target_id: "apollo", type: "parent" },
-  { id: "rel4", source_id: "zeus", target_id: "artemis", type: "parent" },
-  { id: "rel5", source_id: "zeus", target_id: "heracles", type: "parent" },
-  { id: "rel6", source_id: "zeus", target_id: "persephone", type: "parent" },
-  { id: "rel7", source_id: "demeter", target_id: "persephone", type: "parent" },
-  { id: "rel8", source_id: "hades", target_id: "persephone", type: "spouse" },
-  { id: "rel9", source_id: "zeus", target_id: "hera", type: "spouse" },
-];
-
 export function InfiniteCanvas() {
   const characters = useMythyRootsStore(
     (state) => state.currentUniverseCharacters
   );
+  const relationships = useMythyRootsStore(
+    (state) => state.CurrentRelationships
+  );
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const { fitView } = useReactFlow();
 
   useEffect(() => {
     if (!characters || characters.length === 0) return;
 
-    const initialNodes = createNodesFromCharacters(characters || []);
-    const initialEdges = createEdgesFromRelationships(relationships || []);
+    const initialNodes = createNodesFromCharacters(characters);
+    const initialEdges = createEdgesFromRelationships(relationships);
     const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
       initialNodes,
       initialEdges
@@ -48,8 +41,9 @@ export function InfiniteCanvas() {
 
     setNodes(layoutedNodes);
     setEdges(layoutedEdges);
-  }, [characters, setNodes, setEdges]);
 
+    fitView();
+  }, [characters, relationships, setNodes, setEdges, fitView]);
   const onConnect = useCallback(
     (params) =>
       setEdges((eds) =>

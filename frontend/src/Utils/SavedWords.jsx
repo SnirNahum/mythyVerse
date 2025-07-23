@@ -1,6 +1,5 @@
 // General words
 export const NAME = "name";
-export const UNIVERSES_CAMEL = "UNIVERSES";
 
 // Components
 export const UNIVERSES = "Universes";
@@ -11,3 +10,4 @@ export const CHARACTERS = "Characters";
 export const DB_UNIVERSES = "universes";
 export const DB_CHARACTERS = "characters";
 export const CHARACTERS_UNIVERSE = "characters/universe/";
+export const RELATIONSHIPS_UNIVERSE = "relationships/universe/";

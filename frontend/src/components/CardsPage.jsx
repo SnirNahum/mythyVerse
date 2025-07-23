@@ -6,7 +6,7 @@ import { useMythyRootsStore } from "../store/store";
 
 const CardsPage = ({ onClose }) => {
   const universes = useMythyRootsStore((state) => state.universes);
-  const [filteredUniverses, setFilteredUniverses] = useState(universes);
+  const [filteredUniverses, setFilteredUniverses] = useState(universes);  
 
   const onChangeHandler = (filteredUniverse) => {
     const filter = universes.filter((universe) =>

@@ -4,6 +4,9 @@ export function get_all_entitites_query(table_name: string) {
 export function get_all_chracters_by_universe_query(table_name: string, universe: string) {
   return `SELECT * FROM ${table_name} WHERE status = 0 and universe_id = '${universe}'`;
 }
+export function get_all_relationships_by_universe_query(table_name: string, universe: string) {
+  return `SELECT * FROM ${table_name} WHERE status = 0 and universe_id = '${universe}'`;
+}
 export function get_entity_by_id_query(table_name: string, id: string): string {
   return `SELECT * FROM ${table_name} WHERE id = '${id}' AND status = 0`;
 }
